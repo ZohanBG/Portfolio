@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'Evtim Ivanov - Full Stack Developer',
   description: 'Portfolio of Evtim Ivanov - Full Stack Developer specializing in TypeScript, React, Next.js, and Blockchain development',
   keywords: ['Evtim Ivanov', 'Full Stack Developer', 'Web3 Developer', 'TypeScript', 'React', 'Next.js', 'NestJS'],
+  icons: {
+    icon: '/images/portfolio.png',
+  },
 }
 
 const themeScript = `
