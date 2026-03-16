@@ -203,7 +203,7 @@ function ExperiencePanel() {
     {
       title: 'Junior Web3 Developer',
       company: 'LimeChain',
-      period: 'Oct 2025 - Jan 2025',
+      period: 'Oct 2025 - Jan 2026',
       responsibilities: [
         'Ethereum Data Fetcher: Built an Etherscan-like platform using NestJS and Vite to index and display Ethereum blocks, transactions, and address data',
         'Multichain Bridge: Developed a validator-based cross-chain bridge with Solidity, NestJS, and a Next.js UI to enable secure asset transfers across multiple networks',
