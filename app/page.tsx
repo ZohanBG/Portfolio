@@ -19,7 +19,7 @@ export default function Home() {
   }, [])
 
   const technicalSkills = {
-    current: ['TypeScript', 'Nest.js', 'React', 'JavaScript', 'Node.js', 'Express.js', 'PostgreSQL'],
+    current: ['TypeScript', 'JavaScript', 'SQL', 'C#', 'Java', 'Express.js', 'NestJS', 'Next.js'],
   }
 
   const menuItems = [
@@ -73,8 +73,8 @@ export default function Home() {
 
             {/* Description */}
             <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-              Specializing in TypeScript, React, NestJS, and Web3 development.
-              Building scalable applications and blockchain solutions.
+              Specializing in TypeScript, NestJS, Next.js, and Web3 development.
+              Building web applications, REST APIs, and blockchain solutions.
             </p>
 
             {/* Skills */}
@@ -201,25 +201,33 @@ export default function Home() {
 function ExperiencePanel() {
   const experiences = [
     {
-      title: 'Junior Web3 Developer',
+      title: 'Fullstack Developer',
+      company: 'Freelance',
+      period: 'Feb 2026 - Apr 2026',
+      responsibilities: [
+        'Built a fullstack insurance brokerage management system consolidating data from multiple brokers into one platform, replacing scattered spreadsheets and phone lists with tools for tracking vehicle policies, coordinating offers across brokers, and automating renewal notifications',
+        'The production environment currently manages over 15,000 active vehicle insurances',
+      ],
+    },
+    {
+      title: 'Junior Fullstack Developer',
       company: 'LimeChain',
       period: 'Oct 2025 - Jan 2026',
       responsibilities: [
-        'Ethereum Data Fetcher: Built an Etherscan-like platform using NestJS and Vite to index and display Ethereum blocks, transactions, and address data',
-        'Multichain Bridge: Developed a validator-based cross-chain bridge with Solidity, NestJS, and a Next.js UI to enable secure asset transfers across multiple networks',
+        'Built a NestJS middleware service between clients and the Ethereum blockchain handling transaction retrieval, PostgreSQL caching, and user-specific history tracking',
+        'Developed a multi-chain ERC-20 token bridge with a validator-based witness system and automated event indexing, designed to support any EVM-compatible chain by deploying contracts on it',
       ],
     },
     {
       title: 'Junior Backend Developer',
       company: 'Telebid Pro',
-      period: 'July 2024 - Sep 2025',
-      subtitle: 'Started as Trainee, promoted to Junior Developer',
+      period: 'Jul 2024 - Sep 2025',
+      subtitle: 'Started as Trainee, promoted to Junior',
       responsibilities: [
-        'Optimized complex SQL queries in PostgreSQL to improve performance and reduce response times',
-        'Developed backend integrations with third-party platforms including PayPal and Firebase',
-        'Designed and implemented a custom protocol using WebSockets to replace traditional HTTP request/response, significantly reducing header overhead and improving efficiency for clients on slow connections',
-        'Created a reporting module to generate and deliver analytical insights based on application data',
-        'Participated in code and specification reviews to ensure quality and alignment with project goals',
+        'Integrated PayPal as a new payment method, extending the platform\'s existing payment system',
+        'Designed a custom WebSocket protocol to strip HTTP header overhead, significantly reducing data transfer between client and server improving performance for users on slow connections',
+        'Researched and implemented push notifications end-to-end: wrote internal documentation, extended the notification module with a new consumer type and push delivery channel',
+        'Migrated and rewrote legacy CMS reports to a newer version of the company\'s internal library, optimizing queries reducing the slowest report\'s generation time from 10 minutes to 15 seconds',
       ],
     },
   ]
@@ -254,6 +262,23 @@ function ExperiencePanel() {
 function ProjectsPanel() {
   const projects = [
     {
+      title: 'ETKonsult',
+      description: 'Fullstack insurance brokerage management system consolidating data from multiple brokers into one platform. Features vehicle policy tracking, broker offer coordination, renewal notifications, and role-based access control. Currently manages over 15,000 active vehicle insurances in production.',
+      tech: ['Next.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Prisma', 'Socket.IO', 'Tailwind CSS'],
+      githubUrls: [
+        { label: 'Frontend', url: 'https://github.com/ZohanBG/etkonsult-frontend' },
+        { label: 'Backend', url: 'https://github.com/ZohanBG/etkonsult-backend' },
+      ],
+    },
+    {
+      title: 'EVM Bridge',
+      description: 'Multi-chain ERC-20 token bridge with a validator-based witness system and automated event indexing. Users can lock tokens on an origin chain and claim wrapped equivalents on destination chains. Designed to support any EVM-compatible chain. University diploma project.',
+      tech: ['Solidity', 'NestJS', 'Next.js', 'PixiJS', 'Prisma', 'ethers.js', 'wagmi'],
+      githubUrls: [
+        { label: 'GitHub', url: 'https://github.com/ZohanBG/evm-bridge' },
+      ],
+    },
+    {
       title: 'Ethereum Data Fetcher',
       description: 'Built an Etherscan-like platform using NestJS and Vite to index and display Ethereum blocks, transactions, and address data. Features wallet authentication (SIWE), transaction search, and RLP decoding.',
       tech: ['NestJS', 'Vite', 'TypeScript', 'Ethereum', 'PostgreSQL', 'Prisma'],
@@ -262,12 +287,6 @@ function ProjectsPanel() {
         { label: 'Frontend', url: 'https://github.com/ZohanBG/ethereum-fetcher-fe' },
         { label: 'Backend', url: 'https://github.com/ZohanBG/ethereum-fetcher' },
       ],
-    },
-    {
-      title: 'Multichain Bridge',
-      description: 'Developed a validator-based cross-chain bridge with Solidity, NestJS, and a Next.js UI to enable secure asset transfers across multiple networks.',
-      tech: ['Solidity', 'NestJS', 'Next.js', 'Web3'],
-      wip: true,
     },
   ]
 
@@ -279,11 +298,6 @@ function ProjectsPanel() {
           <div key={index} className="p-4 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-2 mb-2">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{project.title}</h3>
-              {project.wip && (
-                <span className="px-2 py-0.5 bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300 rounded text-xs font-medium">
-                  Work in Progress
-                </span>
-              )}
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{project.description}</p>
             <div className="flex flex-wrap gap-2 mb-3">
@@ -339,20 +353,14 @@ function EducationPanel() {
       period: '2022 - 2026',
     },
     {
-      degree: 'Software Development Courses',
+      degree: 'Software Engineering – C#, JavaScript, ASP.NET, MS SQL',
       school: 'SoftUni',
       period: '2017 - 2022',
-      courses: [
-        'Programming Basics with C#',
-        'C# Fundamentals',
-        'C# Advanced',
-        'C# OOP',
-        'JS Advanced',
-        'JS Applications',
-        'MS SQL',
-        'ASP.NET Fundamentals',
-        'ASP.NET Advanced',
-      ],
+    },
+    {
+      degree: 'Specialization: Informatics',
+      school: 'Science and Mathematics High School',
+      period: 'Kyustendil, Bulgaria',
     },
   ]
 
@@ -365,15 +373,6 @@ function EducationPanel() {
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{edu.degree}</h3>
             <p className="text-blue-600 dark:text-blue-400 font-medium">{edu.school}</p>
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">{edu.period}</p>
-            {edu.courses && (
-              <div className="flex flex-wrap gap-2 mt-3">
-                {edu.courses.map((course) => (
-                  <span key={course} className="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded text-xs">
-                    {course}
-                  </span>
-                ))}
-              </div>
-            )}
           </div>
         ))}
       </div>
